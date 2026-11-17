@@ -1,4 +1,6 @@
 #include "paleta.h"
+#include <string>
+
 using namespace std;
 
 Paleta::Paleta(int tamanho){

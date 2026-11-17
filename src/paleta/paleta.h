@@ -3,6 +3,7 @@
  */
 
 #pragma once
+#include <string>
 
 /**
  * Representa uma cor no formato RGB, com três componentes: vermelho (R), verde (G) e azul (B).
@@ -18,6 +19,12 @@ struct Cor {
  * dinamicamente. Cada cor é representada por uma instância da struct Cor.
  */
 class Paleta {
+
+private:
+  int tamanho;
+  int quantidade;
+  Cor* cores;
+
 public:
   /**
    * Cria uma paleta vazia com um tamanho (quantidade máxima) predeterminado de cores.
