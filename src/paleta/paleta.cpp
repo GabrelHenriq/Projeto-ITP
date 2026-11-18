@@ -1,5 +1,6 @@
 #include "paleta.h"
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -13,6 +14,17 @@ Paleta::Paleta(const string& nomeArquivo){
     this->tamanho = 30;
     this->quantidade = 0;
     this->cores = new Cor[this->tamanho];
+    ifstream inputFile(nomeArquivo);
+    string linha;
+    while (getline(inputFile, linha)){
+        int cor_R = stoi(linha.substr(1, 2), nullptr, 16);
+        int cor_G = stoi(linha.substr(3, 2), nullptr, 16);
+        int cor_B = stoi(linha.substr(5, 2), nullptr, 16);
+        adicionarCor(Cor{cor_R, cor_G, cor_B});
+    };
+    inputFile.close();
+
+    
 }
 
 int Paleta::obterTamanho() const {
