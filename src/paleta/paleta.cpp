@@ -31,7 +31,10 @@ void Paleta::adicionarCor(const Cor& cor){
 }
 
 Cor Paleta::obterCor(int indice){
-    
+    if (indice < 0 or indice >= this->quantidade){
+        return {0, 0, 0};
+    }
+    return cores[indice];
 }
 
 // implemente aqui os métodos da classe Paleta, 
