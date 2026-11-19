@@ -11,6 +11,31 @@
 #include "../paleta/paleta.h"
 using Pixel = Cor; // Pixel agora é outro nome para Cor, representando a cor de um pixel da imagem.
 
+class Imagem {
+
+private:
+    int largura;
+    int altura;
+    Pixel* pixels;
+
+public:
+
+    Imagem(int largura, int altura);
+
+    int obterLargura() const;
+
+    int obterAltura() const;
+
+    void definePixel();
+
+    Pixel obterPixel();
+
+    lerPPM();
+
+    salvarPPM();
+
+}
+
 // Lembre-se de:
 // 1. verificar no arquivo de teste o nome correto da classe, dos métodos que você deve implementar, bem como os
 //    parâmetros e tipos de retorno de cada método.

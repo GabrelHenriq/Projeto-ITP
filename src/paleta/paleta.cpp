@@ -40,6 +40,8 @@ void Paleta::adicionarCor(const Cor& cor){
         this->cores[this->quantidade] = {cor.r, cor.g, cor.b};
         this->quantidade++;
     } else {
+        this->cores[this->quantidade] = {cor.r, cor.g, cor.b};
+        this->quantidade++;
         this->tamanho++;
     }
 }
