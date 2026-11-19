@@ -39,6 +39,8 @@ void Paleta::adicionarCor(const Cor& cor){
     if (this->quantidade < this->tamanho){
         this->cores[this->quantidade] = {cor.r, cor.g, cor.b};
         this->quantidade++;
+    } else {
+        this->tamanho++;
     }
 }
 
