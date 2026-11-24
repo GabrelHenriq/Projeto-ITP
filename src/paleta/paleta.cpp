@@ -27,6 +27,10 @@ Paleta::Paleta(const string& nomeArquivo){
     
 }
 
+Paleta::~Paleta(){
+    delete[] cores;
+}
+
 int Paleta::obterTamanho() const {
     return this->tamanho;
 }
@@ -36,15 +40,21 @@ int Paleta::obterQuantidade() const {
 }
 
 void Paleta::adicionarCor(const Cor& cor){
-    if (this->quantidade < this->tamanho){
-        this->cores[this->quantidade] = {cor.r, cor.g, cor.b};
-        this->quantidade++;
-    } else {
-        this->cores[this->quantidade] = {cor.r, cor.g, cor.b};
-        this->quantidade++;
+    if (this->quantidade >= this->tamanho){
         this->tamanho++;
+        Cor* novasCores = new Cor[this->tamanho];
+        for (int i = 0; i < this->quantidade; i++){
+            novasCores[i] = cores[i];
+        }
+        delete[] cores;
+        cores = novasCores;
     }
+    cores[this->quantidade] = {
+        cor.r, cor.g, cor.b
+    };
+    this->quantidade++;
 }
+
 
 Cor Paleta::obterCor(int indice){
     if (indice < 0 or indice >= this->quantidade){

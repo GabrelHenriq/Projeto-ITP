@@ -39,6 +39,8 @@ public:
    */
   Paleta(const std::string& nomeArquivo);
 
+  ~Paleta();
+
   /**
    * Retorna a quantidade máxima de cores que a paleta pode armazenar.
    * @return quantidade máxima de cores.
