@@ -3,6 +3,7 @@
  */
 
 #pragma once
+#include <string>
 
 // Defina aqui a classe Imagem, conforme especificado na etapa 2 do projeto.
 // Você pode reaproveitar o tipo Cor definido em paleta.h, para representar as cores dos pixels da imagem.
@@ -16,25 +17,27 @@ class Imagem {
 private:
     int largura;
     int altura;
-    Pixel* pixels;
+    Pixel** pixels;
 
 public:
 
     Imagem(int largura, int altura);
 
+    Imagem();
+
     int obterLargura() const;
 
     int obterAltura() const;
 
-    void definePixel();
+    void definePixel(int i, int j, const Pixel& novoPixels);
 
-    Pixel obterPixel();
+    Pixel obterPixel(int i, int j) const;
 
-    lerPPM();
+    bool lerPPM(const std::string& nomeArquivo);
 
-    salvarPPM();
+    bool salvarPPM(const std::string& nomeArquivo);
 
-}
+};
 
 // Lembre-se de:
 // 1. verificar no arquivo de teste o nome correto da classe, dos métodos que você deve implementar, bem como os
