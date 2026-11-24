@@ -25,6 +25,8 @@ public:
 
     Imagem();
 
+    ~Imagem();
+
     int obterLargura() const;
 
     int obterAltura() const;

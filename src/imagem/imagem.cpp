@@ -26,6 +26,11 @@ Imagem::Imagem(){
     this->pixels = nullptr;
 }
 
+Imagem::~Imagem(){
+    delete[] pixels;
+    this->pixels = nullptr;
+}
+
 int Imagem::obterLargura() const {
     return this->largura;
 }
@@ -56,6 +61,8 @@ bool Imagem::lerPPM(const string& nomeArquivo){
 
     inputFile >> this->largura >> this->altura;
     inputFile >> maximo;
+    
+    delete[] pixels;
 
     this->pixels = new Pixel*[this->largura];
     for (int i = 0; i < this->largura; i++){
@@ -82,7 +89,9 @@ bool Imagem::salvarPPM(const string& nomeArquivo){
     outputFile << "255" << endl;
     for (int j = 0; j < this->altura; j++){
         for (int i = 0; i < this->largura; i++){
-            outputFile << pixels[i][j].r << ' ' << pixels[i][j].g << ' ' << pixels[i][j].r << endl;
+            outputFile << pixels[i][j].r << ' ' << pixels[i][j].g << ' ' << pixels[i][j].b << endl;
         }
     }
+    outputFile.close();
+    return true;
 }
