@@ -2,7 +2,6 @@
 #include "imagem.h"
 #include <string>
 #include <fstream>
-#include <iostream>
 
 using namespace std;
 
@@ -28,7 +27,6 @@ Imagem::Imagem(){
 
 Imagem::~Imagem(){
     delete[] pixels;
-    this->pixels = nullptr;
 }
 
 int Imagem::obterLargura() const {
@@ -49,7 +47,6 @@ Pixel Imagem::obterPixel(int i, int j) const{
 
 bool Imagem::lerPPM(const string& nomeArquivo){
     ifstream inputFile(nomeArquivo);
-    string linha;
     string formato;
     int maximo;
 
