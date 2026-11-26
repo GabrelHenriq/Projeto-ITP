@@ -20,7 +20,7 @@ Terreno::Terreno(int n){
     }
     for (int i = 0; i < this->largura; i++){
         for (int j = 0; j < this->profundidade; j++){
-            this->altitudes[i][j] = nullptr;
+            this->altitudes[i][j] = 0;
         }
     }
 }
@@ -43,6 +43,23 @@ for(int i = 0; i <= n; i++){
 }
 
 */
+
+// laço com a dimensao do probelma, gerar diamond, gerar square, dimensao/2, diamond, square, dimensao/4
+
+// laço 
+/* int d;
+while (d > 1) {
+    se d for menor que a largura/altura da matriz, 
+    diamond
+        calcular d/2 para altura, d/2 para largura, criar o ponto em [i][j] e ir criando pontos [i+d][j] ate ser maior que o numero de colunas e depois
+        [i][j+d] ate ser maior que o tamanho de linhas
+    square
+        dois laços diferentes, coluna começando em d/2, e os pontos calculados sendo d/2 + d
+    d = d/2
+}
+
+*/
+
 
 void diamond(){
     int d = 0;

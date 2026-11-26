@@ -11,8 +11,6 @@ Imagem::Imagem(int largura, int altura){
     this->pixels = new Pixel*[this->largura];
     for (int i = 0; i < this->largura; i++){
         this->pixels[i] = new Pixel[this->altura];
-    }
-    for (int i = 0; i < this->largura; i++){
         for (int j = 0; j < this->altura; j++){
             this->pixels[i][j] = {0, 0, 0};
         }
@@ -59,8 +57,10 @@ bool Imagem::lerPPM(const string& nomeArquivo){
     inputFile >> this->largura >> this->altura;
     inputFile >> maximo;
     
-    delete[] pixels;
-
+    if (this->pixels != nullptr){
+        delete[] this->pixels;
+    }
+   
     this->pixels = new Pixel*[this->largura];
     for (int i = 0; i < this->largura; i++){
         this->pixels[i] = new Pixel[this->altura];
@@ -74,7 +74,6 @@ bool Imagem::lerPPM(const string& nomeArquivo){
             definePixel(i, j, novoPixel);
         }
     }
-    
     return true;
 }
 
